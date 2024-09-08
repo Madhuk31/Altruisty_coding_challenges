@@ -1,6 +1,6 @@
 # Altruisty_coding_challenges**
 
-#CODE_answer 1**
+#**CODE_answer 1**
 def find_single_numbers(arr):
     xor_result = 0
     for num in arr:
@@ -17,7 +17,7 @@ def find_single_numbers(arr):
 print(find_single_numbers([1, 2, 3, 2, 1, 4])) 
 print(find_single_numbers([2, 1, 3, 2]))        
 
-#CODE_answer 2**
+#**CODE_answer 2**
 def word_break(n, s, dictionary):
     word_set = set(dictionary)
     dp = [False] * (len(s) + 1)
@@ -40,7 +40,7 @@ dictionary2 = ["i", "like", "sam", "sung", "samsung", "mobile"]
 print(word_break(n2, s2, dictionary2)) 
 
 
-#CODE_answer 3**
+#**CODE_answer 3**
 from collections import deque
 
 def find_stepping_numbers(N, M):
@@ -70,7 +70,7 @@ N, M = map(int, input().split())
 stepping_numbers = find_stepping_numbers(N, M)
 print(' '.join(map(str, stepping_numbers)))
 
-#CODE_answer 4**
+#**CODE_answer 4**
 def minimize_ticket_price(ticket_price, k):
     stack = []
     length = len(ticket_price)
@@ -92,3 +92,22 @@ ticket_price = input().strip()
 k = int(input().strip())
 
 print(minimize_ticket_price(ticket_price, k))
+
+#**CODE_answer 5**
+def getMaxToys(prices, money):
+    start = 0
+    current_sum = 0
+    max_length = 0
+
+    for end in range(len(prices)):
+        current_sum += prices[end]
+        while current_sum > money:
+            current_sum -= prices[start]
+            start += 1
+        max_length = max(max_length, end - start + 1)
+
+    return max_length
+
+prices = [1, 4, 5, 3, 2, 1, 6]
+money = 6
+print(getMaxToys(prices, money))  
