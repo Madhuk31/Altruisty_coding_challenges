@@ -29,8 +29,6 @@ def word_break(n, s, dictionary):
                 dp[i] = True
                 break
     return 1 if dp[len(s)] else 0
-
-# Example usage
 n1 = 6
 s1 = "ilike"
 dictionary1 = ["i", "like", "sam", "sung", "samsung", "mobile"]
