@@ -69,3 +69,26 @@ def find_stepping_numbers(N, M):
 N, M = map(int, input().split())
 stepping_numbers = find_stepping_numbers(N, M)
 print(' '.join(map(str, stepping_numbers)))
+
+#CODE_answer 4**
+def minimize_ticket_price(ticket_price, k):
+    stack = []
+    length = len(ticket_price)
+    
+    for digit in ticket_price:
+        while k > 0 and stack and stack[-1] > digit:
+            stack.pop()
+            k -= 1
+        stack.append(digit)
+        stack.pop()
+        k -= 1
+    result = ''.join(stack)
+    result = result.lstrip('0')    
+    if not result:
+        result = '0'
+    
+    return result
+ticket_price = input().strip()
+k = int(input().strip())
+
+print(minimize_ticket_price(ticket_price, k))
